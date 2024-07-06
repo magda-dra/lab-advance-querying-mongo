@@ -11,7 +11,7 @@
 ### 2. All the companies that have more than 5000 employees. Limit the search to 20 companies and sort them by **number of employees**.
 
 - **`query`**: {number_of_employees: {$gt: 5000}}
-- **`sort`**: {number_of_employees: 1}
+- **`sort`**: {number_of_employees: -1}
 - **`limit`**: 20
 
 ### 3. All the companies founded between 2000 and 2005, both years included. Retrieve only the `name` and `founded_year` fields.
@@ -72,7 +72,7 @@
 
 - **`query`**: {"acquisition.acquired_year": {$gt: 2010}}
 - **`projection`**: {name: 1, acquisition: 1, _id: 0}
-- **`sort`**: {"acquisition.price_amount": 1}
+- **`sort`**: {"acquisition.price_amount": -1}
 
 
 ### 14. Order the companies by their `founded year`, retrieving only their `name` and `founded year`.
@@ -85,6 +85,7 @@
 
 - **`query`**: {founded_day: {$lte: 7}}
 - **`sort`**: {"acquisition.price_amount": -1}
+- **`limit`**: 10
 
 
 ### 16. All the companies on the 'web' `category` that have more than 4000 employees. Sort them by the amount of employees in ascending order.
@@ -99,7 +100,7 @@
 
 ### 18. All the companies that have been acquired on the first trimester of the year. Limit the search to 10 companies, and retrieve only their `name` and `acquisition` fields.
 
-- **`query`**: {"acquisition.acquired_month": {$lte: 4}}
+- **`query`**: {"acquisition.acquired_month": {$lte: 3}}
 - **`projection`**: {name: 1, acquisition: 1, _id: 0}
 - **`limit`**: 10
 
